@@ -16,7 +16,7 @@ greenlet==1.1.1
 gunicorn==20.1.0
 importlib-resources==5.2.2
 itsdangerous==2.0.1
-Jinja2==3.0.g1
+Jinja2==3.0.1
 Mako==1.1.5
 MarkupSafe==2.0.1
 migrate==0.3.7
