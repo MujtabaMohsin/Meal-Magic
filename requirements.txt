@@ -47,7 +47,6 @@ mccabe==0.6.1
 mongoengine==0.20.0
 monotonic==1.5
 numpy==1.18.1
-opencv-contrib-python==4.2.0.32
 Pillow==7.0.0
 pipenv==2018.11.26
 psycopg2==2.8.5
