@@ -28,9 +28,7 @@ def create_app(test_config=None):
 
     @app.route('/')
     def index():
-        return jsonify({
-            'message': 'Helllo'
-        })
+        return render_template('index.html')
 
     @app.route('/login')
     def login():
