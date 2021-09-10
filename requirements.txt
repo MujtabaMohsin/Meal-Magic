@@ -29,5 +29,5 @@ SQLAlchemy==1.4.18
 times==0.7
 tzdata==2021.1
 tzlocal==3.0
-Werkzeug==2.0.1
+Werkzeug==1.0.1
 zipp==3.5.0
