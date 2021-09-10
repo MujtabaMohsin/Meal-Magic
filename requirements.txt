@@ -32,3 +32,4 @@ tzdata==2021.1
 tzlocal==3.0
 Werkzeug==1.0.1
 zipp==3.5.0
+jose==1.0.0
