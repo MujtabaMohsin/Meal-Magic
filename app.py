@@ -25,6 +25,13 @@ def create_app(test_config=None):
 
     # --------- ENDPOINTS ---------
 
+
+    @app.route('/')
+    def index():
+        return jsonify({
+            'message': 'Helllo'
+        })
+
     @app.route('/login')
     def login():
         pass
