@@ -40,7 +40,7 @@ def create_app(test_config=None):
 
     @app.route('/products')
     @requires_auth('get:products')
-    def get_products():
+    def get_products(payload):
         # get all products from database
         products = Product.query.all()
 
