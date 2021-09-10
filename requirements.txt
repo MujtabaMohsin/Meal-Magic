@@ -7,9 +7,10 @@ ecdsa==0.14.1
 Flask==1.1.2
 Flask-Cors==3.0.8
 Flask-Migrate==2.5.3
+Flask-Moment==0.10.0
 Flask-Script==2.0.6
 Flask-SQLAlchemy==2.4.4
-gunicorn==20.0.4moment
+gunicorn==20.0.4
 iniconfig==1.0.1
 itsdangerous==1.1.0
 Jinja2==2.11.2
