@@ -9,14 +9,14 @@ import os
 
 db = SQLAlchemy()
 
-database = os.getenv('SQLALCHEMY_DATABASE_URI')
+database = os.getenv('DATABASE_URL')
 
 
 def setup_db(app):
-    db2 = SQLAlchemy()
+    
     app.config.from_object('config')
-    db2.app = app
-    db2.init_app(app)
+    db.app = app
+    db.init_app(app)
     migrate = Migrate(app, db2)
     db.create_all()
 
