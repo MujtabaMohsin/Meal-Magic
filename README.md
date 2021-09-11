@@ -66,18 +66,18 @@ To login, you should move to the ```/login``` enfpoint such as https://meal-magi
 according the user roles.
 
 Three dummy accounts were genereted as follow:
-• **Role**:Customer
-• **Username**:user-customer@email.com
-• **Password**:User1234!
+- **Role**:Customer
+- **Username**:user-customer@email.com
+- **Password**:User1234!
 
 
-• **Role**:Cooker
-• **Username**:user-cooker@email.com
-• **Password**:User1234!
+- **Role**:Cooker
+- **Username**:user-cooker@email.com
+- **Password**:User1234!
 
-• **Role**:Manger
-• **Username**:user-manger@email.com
-• **Password**:User1234!
+- **Role**:Manger
+- **Username**:user-manger@email.com
+- **Password**:User1234!
 
 ### Roles
 There are three roles in this API:
