@@ -14,7 +14,6 @@ AuthError Exception
 A standardized way to communicate auth failure modes
 '''
 
-
 class AuthError(Exception):
     def __init__(self, error, status_code):
         self.error = error
@@ -22,11 +21,6 @@ class AuthError(Exception):
 
 
 ## Auth Header
-
-'''
-@TODO implement get_token_auth_header() method
-DONE   
-'''
 
 
 def get_token_auth_header():
@@ -68,18 +62,6 @@ def get_token_auth_header():
     return token
 
 
-'''
-@TODO implement check_permissions(permission, payload) method
-    @INPUTS
-        permission: string permission (i.e. 'post:drink')
-        payload: decoded jwt payload
-
-
-        !!NOTE check your RBAC settings in Auth0
-    it should raise an AuthError if the requested permission string is not in the payload permissions array
-    return true otherwise
-'''
-
 
 def check_permissions(permission, payload):
     # it should raise an AuthError if permissions are not included in the payload
@@ -96,12 +78,6 @@ def check_permissions(permission, payload):
         }, 403)
 
     return True
-
-
-'''
-@TODO implement verify_decode_jwt(token) method
- DONE
- '''
 
 
 def verify_decode_jwt(token):
@@ -162,11 +138,6 @@ def verify_decode_jwt(token):
     }, 400)
 
 
-'''
-@TODO implement @requires_auth(permission) decorator method
-DONE   
-'''
-
 
 def requires_auth(permission=''):
     def requires_auth_decorator(f):
@@ -187,5 +158,3 @@ def requires_auth(permission=''):
         return wrapper
 
     return requires_auth_decorator
-
-
