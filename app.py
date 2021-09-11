@@ -1,16 +1,14 @@
-import os
 from flask import Flask, request, abort, jsonify, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from models import *
 from auth import *
 
-
-
 def create_app():
     # create and configure the app
     app = Flask(__name__)
-    setup_db(app)
+    config_database(app)
+
     # Set up CORS and allow '*' for origins
     CORS(app, resources={'/': {'origins': '*'}})
 
@@ -22,11 +20,9 @@ def create_app():
         response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PATCH,DELETE,OPTIONS')
         return response
 
-    # --------- ENDPOINTS ---------
-    
-    
-    # --------- Basic ---------
+    # ------------ ENDPOINTS ------------
 
+    # --------- Basic ---------
 
     @app.route('/')
     def index():
@@ -34,8 +30,8 @@ def create_app():
 
     @app.route('/login')
     def login():
-        return redirect("https://muj-moshin.us.auth0.com/authorize?audience=Meal-Magic&response_type=token&client_id=0NffjGNrsa8sUVtytU0GYDsMTG514AJS&redirect_uri=https://meal-magic.herokuapp.com")
-
+        return redirect(
+            "https://muj-moshin.us.auth0.com/authorize?audience=Meal-Magic&response_type=token&client_id=0NffjGNrsa8sUVtytU0GYDsMTG514AJS&redirect_uri=https://meal-magic.herokuapp.com")
 
     @app.route('/logout')
     def logout():
@@ -140,7 +136,7 @@ def create_app():
 
     @app.route('/products/<int:product_id>', methods=['PATCH'])
     @requires_auth('patch:products')
-    def patch_product(payload,product_id):
+    def patch_product(payload, product_id):
         data = request.get_json()
 
         name = data.get('name')
@@ -174,7 +170,7 @@ def create_app():
 
     @app.route('/cuisines/<int:cuisine_id>', methods=['PATCH'])
     @requires_auth('patch:cuisines')
-    def patch_cuisine(payload,cuisine_id):
+    def patch_cuisine(payload, cuisine_id):
         data = request.get_json()
 
         name = data.get('name')
@@ -202,7 +198,7 @@ def create_app():
 
     @app.route('/products/<int:product_id>', methods=['DELETE'])
     @requires_auth('delete:products')
-    def delete_product(payload,product_id):
+    def delete_product(payload, product_id):
         # get the question you want to delete
         product = Product.query.filter_by(id=product_id).first()
 
@@ -220,7 +216,7 @@ def create_app():
 
     @app.route('/cuisines/<int:cuisine_id>', methods=['DELETE'])
     @requires_auth('delete:cuisines')
-    def delete_cuisine(payload,cuisine_id):
+    def delete_cuisine(payload, cuisine_id):
         # get the question you want to delete
         cuisine = Cuisine.query.filter_by(id=cuisine_id).first()
 
@@ -234,11 +230,10 @@ def create_app():
             'message': "The cuisine is deleted"
         })
 
-
     # --------- Error Handling  ---------
 
     @app.errorhandler(422)
-    def unprocessable_422(error):
+    def error_422(error):
         return jsonify({
             "success": False,
             "error": 422,
@@ -246,15 +241,15 @@ def create_app():
         }), 422
 
     @app.errorhandler(400)
-    def unprocessable_400(error):
+    def error_400(error):
         return jsonify({
             "success": False,
             "error": 400,
-            "message": 'Permissions not found'
+            "message": "bad request"
         }), 400
 
     @app.errorhandler(500)
-    def unprocessable_500(error):
+    def error_500(error):
         return jsonify({
             "success": False,
             "error": 500,
@@ -262,7 +257,7 @@ def create_app():
         }), 500
 
     @app.errorhandler(404)
-    def unprocessable_404(error):
+    def error_404(error):
         return jsonify({
             "success": False,
             "error": 404,
@@ -270,27 +265,25 @@ def create_app():
         }), 404
 
     @app.errorhandler(AuthError)
-    def auth_error(error):
+    def auth_error(err):
         return jsonify({
             "success": False,
-            "error": error.status_code,
-            "message": error.error['description']
-        }), error.status_code
+            "error": err.status_code,
+            "message": err.error['description']
+        }), err.status_code
 
     @app.errorhandler(401)
-    def unauthorized(error):
+    def error_401(error):
         return jsonify({
             "success": False,
             "error": 401,
             "message": 'Unathorized'
         }), 401
 
-
-
     return app
 
 
-APP = create_app()
+run_app = create_app()
 
 if __name__ == '__main__':
-    APP.run(host='0.0.0.0', port=8080, debug=True)
+    run_app.run(host='0.0.0.0', port=8080, debug=True)
