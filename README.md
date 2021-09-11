@@ -50,31 +50,35 @@ python app.py
 
 ## API Reference
 
+### Roles
+There are three roles in this API:
+
+**1.  Customer:** can get all products and cuisines only
+
+**2.  Cooker:** can do all actions for products but can only get cuisines
+
+**3.  Manger:** can do all actions
+
 ### Login
 To use the API, you need log in and to be authenticated. Then a Jwt token would be generated.
 To login, you should move to the ```/login``` enfpoint such as https://meal-magic.herokuapp.com/login then the access token will be genereted in the URI
 according the user roles.
 
-Three dummy accounts were genereted as follow:
-- **Role**:Customer
-- **Username**:user-customer@email.com
-- **Password**:User1234!
+Three dummy accounts were created as follow:
+##### User 1
+- **Role**: Customer
+- **Username**: user-customer@email.com
+- **Password**: User1234!
 
+##### User 2
+- **Role**: Cooker
+- **Username**: user-cooker@email.com
+- **Password**: User1234!
 
-- **Role**:Cooker
-- **Username**:user-cooker@email.com
-- **Password**:User1234!
-
-- **Role**:Manger
-- **Username**:user-manger@email.com
-- **Password**:User1234!
-
-### Roles
-There are three roles in this API:
-
-**1.	Customer:** can get all products and cuisines only
-**2.	Cooker:** can do all actions for products but can only get cuisines
-**3.	Manger:** can do all actions
+##### User 3
+- **Role**: Manger
+- **Username**: user-manger@email.com
+- **Password**: User1234!
 
 ### Endpoints
 **GET /products** : returns all the products.
