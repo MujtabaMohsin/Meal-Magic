@@ -131,3 +131,16 @@ Sample of results:
 **DELETE /products/<int:id>** : delete a specific product by id
  
 **DELETE /cuisines/<int:id>** : delete a specific cuisine by id
+
+
+## Test
+To run the tests, run:
+```
+python test_app.py
+```
+it should disply the ok message if all tests passed
+```
+Ran 15 tests in 35.333s
+
+OK
+```
