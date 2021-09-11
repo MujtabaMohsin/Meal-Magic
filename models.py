@@ -48,7 +48,7 @@ class Product(db.Model):
 
     # model methods:
 
-    def ___init__(self, name, description, price, cuisine_id):
+    def __init__(self, name, description, price, cuisine_id):
         self.name = name
         self.description = description
         self.price = price
@@ -84,7 +84,7 @@ class Cuisine(db.Model):
 
     # model methods:
 
-    def ___init__(self, name):
+    def __init__(self, name):
         self.name = name
 
     def insert(self):
