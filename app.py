@@ -38,7 +38,7 @@ def create_app():
 
 
     @app.route('/logout')
-    def login():
+    def logout():
         return redirect("https://muj-moshin.us.auth0.com/v2/logout")
 
     # --------- Get Products ---------
