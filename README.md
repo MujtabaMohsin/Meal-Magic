@@ -86,9 +86,6 @@ Three dummy accounts were created as follow:
 Sample of results:
 ```
 {
-
-}
-{
     "products": [
         {
             "name": "Sweet and Sour Pork",
