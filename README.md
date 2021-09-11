@@ -59,6 +59,26 @@ python app.py
 ```
 
 ## API Reference
+
+### Login
+To use the API, you need log in and to be authenticated. Then a Jwt token would be generated.
+To login, you should move to the ```/login``` enfpoint such as https://meal-magic.herokuapp.com/login then the access token will be genereted in the URI
+according the user roles.
+
+Three dummy accounts were genereted as follow:
+• **Role**:Customer
+• **Username**:user-customer@email.com
+• **Password**:User1234!
+
+
+• **Role**:Cooker
+• **Username**:user-cooker@email.com
+• **Password**:User1234!
+
+• **Role**:Manger
+• **Username**:user-manger@email.com
+• **Password**:User1234!
+
 ### Roles
 There are three roles in this API:
 
@@ -68,6 +88,7 @@ There are three roles in this API:
 
 ### Endpoints
 **GET /products** : returns all the products.
+
 Sample of results:
 ```
 {
@@ -87,6 +108,7 @@ Sample of results:
 ```
 
 **GET /cuisines** : returns all the cuisines.
+
 Sample of results:
 ```
 {
