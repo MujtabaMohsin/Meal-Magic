@@ -148,3 +148,5 @@ Ran 15 tests in 35.333s
 
 OK
 ```
+
+NOTE: The tokens available in config.py will be expaired. So you need to update them manually.
