@@ -1,5 +1,4 @@
 import unittest
-import os
 import json
 from app import create_app
 from config import *
@@ -8,17 +7,16 @@ from models import *
 
 class TestCase(unittest.TestCase):
 
-
     def setUp(self):
-        """Define test variables and initialize app."""
         self.app = create_app()
         self.client = self.app.test_client
-        setup_db(self.app)
+        config_database(self.app)
 
 
         with self.app.app_context():
             self.db = SQLAlchemy()
             self.db.init_app(self.app)
+
 
     # --------- test get products , success ---------
 
