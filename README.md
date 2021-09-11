@@ -6,27 +6,17 @@ It models a food company that serve food products from differnt cuisines.
 https://meal-magic.herokuapp.com/
 
 ## Knowledge and Technologies Used
-• Python
-
-• Relational Database
-
-• Modeling Data Objects with SQLAlchemy
-
-• Internet Protocols and Communication
-
-• Flask 
-
-• Authentication and Access
-
-• Auth0
-
-• Role-Based Access Control (RBAC)
-
-• Testing Flask Applications
-
-• Deploying Applications
-
-• Heroku
+- Python
+- Relational Database
+- Modeling Data Objects with SQLAlchemy
+- Internet Protocols and Communication
+- Flask 
+- Authentication and Access
+- Auth0
+- Role-Based Access Control (RBAC)
+- Testing Flask Applications
+- Deploying Applications
+- Heroku
 
 ## Getting Started
 ### Run Locally
