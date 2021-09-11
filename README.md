@@ -2,7 +2,7 @@
 Meal Magic is web API was created as the capstone project for Udacity's Full-Stack Developer Nanodegree program. It aims to apply all the concepts and skills gained.
 It models a food company that serve food products from differnt cuisines. 
 
-## Site Live
+## Site Link
 https://meal-magic.herokuapp.com/
 
 ## Knowledge and Technologies Used
