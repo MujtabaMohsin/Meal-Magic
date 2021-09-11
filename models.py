@@ -11,7 +11,7 @@ def config_database(app):
     db.app = app
     db.init_app(app)
     db.create_all()
-    # add_init_data()
+    add_init_data()
     migrate = Migrate(app, db)
 
 
@@ -48,7 +48,7 @@ class Product(db.Model):
 
     # model methods:
 
-    def _init__(self, name, description, price, cuisine_id):
+    def ___init__(self, name, description, price, cuisine_id):
         self.name = name
         self.description = description
         self.price = price
@@ -84,7 +84,7 @@ class Cuisine(db.Model):
 
     # model methods:
 
-    def _init__(self, name):
+    def ___init__(self, name):
         self.name = name
 
     def insert(self):
