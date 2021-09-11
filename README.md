@@ -83,7 +83,7 @@ Three dummy accounts were created as follow:
 ### Endpoints
 **GET /products** : returns all the products.
 
-Sample of results:
+Sample of success results:
 ```
 {
     "products": [
@@ -100,7 +100,7 @@ Sample of results:
 
 **GET /cuisines** : returns all the cuisines.
 
-Sample of results:
+Sample of success results:
 ```
 {
     "cuisines": [
@@ -118,6 +118,15 @@ Sample of results:
         }
     ],
     "success": true
+}
+```
+
+In case no token was entered, error masseage would be shown
+```
+{
+    "error": 401,
+    "message": "Authorization header is expected.",
+    "success": false
 }
 ```
 
