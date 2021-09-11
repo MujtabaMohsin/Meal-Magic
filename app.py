@@ -23,6 +23,9 @@ def create_app():
         return response
 
     # --------- ENDPOINTS ---------
+    
+    
+    # --------- Basic ---------
 
 
     @app.route('/')
@@ -31,7 +34,12 @@ def create_app():
 
     @app.route('/login')
     def login():
-        return redirect("http://www.example.com")
+        return redirect("https://muj-moshin.us.auth0.com/authorize?audience=Meal-Magic&response_type=token&client_id=0NffjGNrsa8sUVtytU0GYDsMTG514AJS&redirect_uri=https://meal-magic.herokuapp.com")
+
+
+    @app.route('/logout')
+    def login():
+        return redirect("https://muj-moshin.us.auth0.com/v2/logout")
 
     # --------- Get Products ---------
 
