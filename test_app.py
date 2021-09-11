@@ -21,7 +21,7 @@ class TestCase(unittest.TestCase):
     # --------- test get products , success ---------
 
     def test_get_products(self):
-        res = self.client().get('/products')
+        res = self.client().get('/products', headers={"Authorization": "Bearer " + CUSTOMER_TOKEN})
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
