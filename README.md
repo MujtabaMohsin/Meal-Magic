@@ -58,3 +58,64 @@ DATABASE_URL = "postgresql://postgres:admin@localhost:5432/Meal-Magic"
 python app.py
 ```
 
+## API Reference
+### Roles
+There are three roles in this API:
+
+**1.	Customer:** can get all products and cuisines only
+**2.	Cooker:** can do all actions for products but can only get cuisines
+**3.	Manger:** can do all actions
+
+### Endpoints
+**GET /products** : returns all the products.
+Sample of results:
+```
+{
+
+}
+{
+    "products": [
+        {
+            "name": "Sweet and Sour Pork",
+            "description": "Sweet and sour pork is a Chinese dish particularly popular in westernised Cantonese cuisine",
+            "cuisine_id": 3,
+            "price": 68
+        }
+    ],
+    "success": true
+}
+```
+
+**GET /cuisines** : returns all the cuisines.
+Sample of results:
+```
+{
+    "cuisines": [
+        {
+            "id": 1,
+            "name": "Arab"
+        },
+        {
+            "id": 2,
+            "name": "Chinese"
+        },
+        {
+            "id": 3,
+            "name": "Indian"
+        }
+    ],
+    "success": true
+}
+```
+
+**POST /products** : post a new product
+
+**POST /cuisines** : post a new cuisine
+ 
+**PATCH /products/<int:id>** : update a specific product by id
+
+**PATCH /cuisines/<int:id>** : update a specific cuisine by id
+
+**DELETE /products/<int:id>** : delete a specific product by id
+ 
+**DELETE /cuisines/<int:id>** : delete a specific cuisine by id
