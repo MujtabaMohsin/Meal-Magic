@@ -1,27 +1,38 @@
-from flask import Flask
 from flask_migrate import Migrate
-from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
-import os
+
 
 # --------- App Config ---------
 
-
 db = SQLAlchemy()
 
-database = os.getenv('DATABASE_URL')
-
-
-def setup_db(app):
-    
+def config_database(app):
     app.config.from_object('config')
     db.app = app
     db.init_app(app)
-    migrate = Migrate(app, db)
     db.create_all()
+    # add_init_data()
+    migrate = Migrate(app, db)
 
 
-# --------- models ---------
+def add_init_data():
+    cuisine_1 = Cuisine("Arab")
+    cuisine_2 = Cuisine("Chinese")
+    cuisine_3 = Cuisine("Indian")
+
+    cuisine_1.insert()
+    cuisine_2.insert()
+    cuisine_3.insert()
+
+    product_1 = Product("Hummus","The standard garnish in the Middle East includes olive oil",33,1)
+    product_2 = Product("Kofta", "Koftas consist of balls of ground meat - usually beef, chicken, lamb or mutton, or a mixture", 44, 1)
+
+    product_1.insert()
+    product_2.insert()
+
+
+
+# --------- Models ---------
 
 
 class Product(db.Model):
@@ -56,7 +67,6 @@ class Product(db.Model):
 
     def format_data(self):
         return ({
-
             "name": self.name,
             "description": self.description,
             "price": self.price,
@@ -65,8 +75,6 @@ class Product(db.Model):
             "date_created": self.date_created,
         })
 
-    def __repr__(self):
-        return f'<Product: id: {self.id} name: {self.name}>'
 
 
 class Cuisine(db.Model):
@@ -95,6 +103,3 @@ class Cuisine(db.Model):
             "id": self.id,
             "name": self.name,
         })
-
-    def __repr__(self):
-        return f'<Cuisine: id: {self.id} name: {self.name}>'
